@@ -17,9 +17,9 @@ const dashBoardNavTree = [{
   breadcrumb: false,
   submenu: [
     {
-      key: 'extra-pages-list',
+      key: 'dashboard-user-list',
       path: `${APP_PREFIX_PATH}/users`,
-      title: 'sidenav.pages.userlist',
+      title: 'sidenav.dashboard.userlist',
       icon: UserOutlined,
       breadcrumb: true,
       submenu: []
@@ -36,25 +36,25 @@ const appsNavTree = [{
   submenu: [
   
     {
-      key: 'dashboards-default',
+      key: 'apps-home',
       path: `${APP_PREFIX_PATH}/home`,
-      title: 'sidenav.dashboard.default',
+      title: 'home',
       icon: DashboardOutlined,
       breadcrumb: true,
       submenu: []
     },
     {
-      key: 'extra-pages-setting',
+      key: 'apps-setting',
       path: `${APP_PREFIX_PATH}/setting`,
-      title: 'sidenav.pages.setting',
+      title: 'sidenav.apps.setting',
       icon: SettingOutlined,
       breadcrumb: true,
       submenu: []
     },
     {
-      key: 'components-charts-apex',
+      key: 'apps-chart',
       path: `${APP_PREFIX_PATH}/chart`,
-      title: 'sidenav.charts.apex',
+      title: 'sidenav.apps.chart',
       icon: PieChartOutlined,
       breadcrumb: true,
       submenu: []
