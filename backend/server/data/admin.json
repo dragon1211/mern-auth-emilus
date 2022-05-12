@@ -1,0 +1,16 @@
+[
+    {
+        "id": "web-developer",
+        "email": "inddev0807@gmail.com",
+        "password": "password",
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "role": "admin"
+    },
+    {
+        "id": "CEO",
+        "email": "seafood@gmail.com",
+        "password": "password",
+        "avatar": "/img/avatars/thumb-1.jpg",
+        "role": "admin"
+    }
+]

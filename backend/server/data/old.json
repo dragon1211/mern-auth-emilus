@@ -1,0 +1,485 @@
+[
+    {
+        "id": "admin",
+        "email": "admin@gmail.com",
+        "password": "$2a$08$2zmywuwlPgLcLmOeCrMuH.1Prc15ZzclXjGoXMjNO5n1z67RwljZa",
+        "avatar": "files/1642141091316_2021-12-04_040122.png",
+        "personalInfo": {
+            "name": "admin",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "seafood2929@gmail.com",
+        "password": "$2a$08$8QcgQIYrTsTecL45aeX20OHaP89GS9QY.RK05eLm9T8wrD3KYodM.",
+        "avatar": "files/1642552511439_Fantation プレス.jpg",
+        "personalInfo": {
+            "name": "磯貝",
+            "furigana": "イソガイ",
+            "birthday": "1988年5月27日",
+            "phoneNumber": "09091364747",
+            "locationProvince": "福岡県",
+            "locationCity": "福岡市",
+            "extra": "早良区"
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "kanazawaryostar@gmail.com",
+        "password": "$2a$08$tFTL72Uf13mSeUlyd26ANuc9up9dMcmhEeqH3aIhXmb1mfwQdvJYq",
+        "avatar": "",
+        "personalInfo": {
+            "name": "aaa",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "bear_star713@hotmail.com",
+        "password": "$2a$08$7bQF3zY8XuoW47/2No/77.1K3t4lMTtQYGNkS89Ky.H.0i0G/OyFu",
+        "avatar": "",
+        "personalInfo": {
+            "name": "bear",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "seafood2929@icloud.com",
+        "password": "$2a$08$.Lr79Gjsg3Ny0SR9wGHDkO1eRHL9BrVfBST2szee3buoUUhfz.oQO",
+        "avatar": "",
+        "personalInfo": {
+            "name": "テストいそ",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "demo@mail.com",
+        "password": "$2a$08$LAVhe6.hsYIzM9kVZR8MXOqRxn2gu.7BUWNaZ4qhpAsJAbD1.NthC",
+        "avatar": "",
+        "personalInfo": {
+            "name": "demo",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "terry@mail.com",
+        "password": "$2a$08$2zj81aR1rV53dvC8dRetUueGewD31QNo2bs.GtaWAHK4b6Y1RZIb2",
+        "avatar": "",
+        "personalInfo": {
+            "name": "terry",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "mama@mail.com",
+        "password": "$2a$08$geRxFyHNPqoo2Ju.NLfviO1QUJ8tyfvPens0xfXxgL.m8Vvcp6TLa",
+        "avatar": "",
+        "personalInfo": {
+            "name": "mama",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "oinarioinari555@gmail.com",
+        "password": "$2a$08$UQMOk0.TbKPoXFGTZe.hROWZr1ZnkoJTrqERPZM6bVjyIWHLmCiPO",
+        "avatar": "",
+        "personalInfo": {
+            "name": "いそてすと",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "isogai@comboy.co.jp",
+        "password": "$2a$08$mXPmg1V9W2vSU3J9fIL.eOnt6z7runPRI7PGXUc.eoDVR1FsiH/1a",
+        "avatar": "",
+        "personalInfo": {
+            "name": "テスト",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "demo@gmail.com",
+        "password": "$2a$08$jcDbjW5y7/dEsbSud0z9TuAlZADyzCFj9W.euJtUZxTwBS/9Xi.uS",
+        "avatar": "",
+        "personalInfo": {
+            "name": "demo",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "de@gmail.com",
+        "password": "$2a$08$AkDHUDko8Fd.RXMEXJZjJux1VtnDE61B2Dqq9v8krNzuRqf5Kqlwu",
+        "avatar": "",
+        "personalInfo": {
+            "name": "お",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "kei19851203@gmail.com",
+        "password": "$2a$08$IujlDk9qUPOHS9tyvzv2eODaTQe3Gyud4/X2tb.9fJh/.xFkCpBEe",
+        "avatar": "",
+        "personalInfo": {
+            "name": "石田啓一郎",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "atpt@gmail.com",
+        "password": "$2a$08$5FNKJfsbNRWQB.8ZYtDESuaFaCkSqzvoUIwLjCI4Kp4YLvSkIv7Dm",
+        "avatar": "",
+        "personalInfo": {
+            "name": "テスト",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "bench.mark311@gmail.com",
+        "password": "$2a$08$tA9Q6PGcikoPVLs4m9r.y.UwuOmcrwUsSXY110HkTHyscLFTWEvhq",
+        "avatar": "",
+        "personalInfo": {
+            "name": "あ",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "aaaa@gmail.com",
+        "password": "$2a$08$4iaja8s4JgQQG9RU9vDzT.Qcpn9XfTLCd4ov0fpIIIdxDDw5hzDSO",
+        "avatar": "",
+        "personalInfo": {
+            "name": "aaaa@gmail.com",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "okawa0707@yahoo.co.jp",
+        "password": "$2a$08$3.D.VHAbDpK1HmAIJUP8neeGWDQfnfJgbzGqWx6CYpFi.BC28mLy6",
+        "avatar": "",
+        "personalInfo": {
+            "name": "大川政也",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "pote8gram@gmail.com",
+        "password": "$2a$08$oRQk.oHS9YJnRSrs5CWEgu.uIukZ3QhsrNFNv25tpxqVjDltL2N72",
+        "avatar": "",
+        "personalInfo": {
+            "name": "岡崎",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "mrtakahashi1@yahoo.co.jp",
+        "password": "$2a$08$qTKYO6q0h4H9i1LTsUaieOozl.HcD2KjvUzIWEplfMgNHOQxRr8O2",
+        "avatar": "",
+        "personalInfo": {
+            "name": "高橋豊",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "sky@mail.com",
+        "password": "$2a$08$i8fz6HUM4H9NL.yzm3nFMeRKBdicA4VDfYuUdu.jxivQqH0rTV9bW",
+        "avatar": "",
+        "personalInfo": {
+            "name": "sky",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "test@mail.com",
+        "password": "$2a$08$pCH11jTMaqf5fBk22m0zh.ZA.tLRNgSqs2mIr.77Hz/PKsNpRkb.m",
+        "avatar": "",
+        "personalInfo": {
+            "name": "test",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "aaademo@gmail.com",
+        "password": "$2a$08$cVwaqN0MVoXddNkn4RIADefHr2975HW8HTmoIetBBZkMirTOKHMqm",
+        "avatar": "",
+        "personalInfo": {
+            "name": "あ",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    },
+    {
+        "id": "",
+        "email": "seafood2910@gmail.com",
+        "password": "$2a$08$39jmgPI44iUf7spTDAYCUujT0AL0C3D.janAInRWS7ajHCbc7Xd0u",
+        "avatar": "",
+        "personalInfo": {
+            "name": "テスト",
+            "furigana": "",
+            "birthday": 0,
+            "phoneNumber": "+",
+            "locationProvince": "",
+            "locationCity": "",
+            "extra": ""
+        },
+        "status": {
+            "sms": false,
+            "emailVerified": false,
+            "identityVerified": 0,
+            "quitConfirmed": 0
+        }
+    }
+]

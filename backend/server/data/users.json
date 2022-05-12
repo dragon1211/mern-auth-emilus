@@ -1,0 +1,189 @@
+{ 
+    "_id" : ObjectId("621e8696723bed4c600b011b"), 
+    "role" : "admin", 
+    "id" : "web-developer", 
+    "email" : "inddev0807@gmail.com", 
+    "password" : "$2a$08$.gYUugr/3id0.IKsO4me..dGhG4WmPr4IPzSCRCFt10DZgRr14H7q", 
+    "avatar" : "/img/avatars/thumb-1.jpg", 
+    "created_at" : ISODate("2022-03-01T20:48:22.836+0000"), 
+    "updated_at" : ISODate("2022-03-01T20:48:22.836+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("621e8696723bed4c600b011c"), 
+    "role" : "admin", 
+    "id" : "CEO", 
+    "email" : "seafood@gmail.com", 
+    "password" : "$2a$08$9ioANthHPE0LDyUgrnRgg.2UxlhSIEWBh5gpDrUlKfLEUYVkh8lWe", 
+    "avatar" : "/img/avatars/thumb-1.jpg", 
+    "created_at" : ISODate("2022-03-01T20:48:22.842+0000"), 
+    "updated_at" : ISODate("2022-03-01T20:48:22.842+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("621e86bd165a125540a3f70f"), 
+    "role" : "user", 
+    "id" : "", 
+    "email" : "okawa0707@yahoo.co.jp", 
+    "password" : "$2a$08$3.D.VHAbDpK1HmAIJUP8neeGWDQfnfJgbzGqWx6CYpFi.BC28mLy6", 
+    "avatar" : "/img/user.png", 
+    "personalInfo" : {
+        "_id" : ObjectId("621e86bd165a125540a3f710"), 
+        "name" : "大川政也", 
+        "furigana" : "", 
+        "birthday" : ISODate("1970-01-01T00:00:00.000+0000"), 
+        "phoneNumber" : "", 
+        "locationProvince" : "", 
+        "locationCity" : "", 
+        "extra" : ""
+    }, 
+    "sms" : false, 
+    "emailVerified" : false, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "created_at" : ISODate("2022-03-01T20:49:01.589+0000"), 
+    "updated_at" : ISODate("2022-03-01T20:49:01.589+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("621e86bd165a125540a3f715"), 
+    "role" : "user", 
+    "id" : "", 
+    "email" : "mrtakahashi1@yahoo.co.jp", 
+    "password" : "$2a$08$qTKYO6q0h4H9i1LTsUaieOozl.HcD2KjvUzIWEplfMgNHOQxRr8O2", 
+    "avatar" : "/img/user.png", 
+    "personalInfo" : {
+        "_id" : ObjectId("621e86bd165a125540a3f716"), 
+        "name" : "高橋豊", 
+        "furigana" : "", 
+        "birthday" : ISODate("1970-01-01T00:00:00.000+0000"), 
+        "phoneNumber" : "", 
+        "locationProvince" : "", 
+        "locationCity" : "", 
+        "extra" : ""
+    }, 
+    "sms" : false, 
+    "emailVerified" : false, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "created_at" : ISODate("2022-03-01T20:49:01.696+0000"), 
+    "updated_at" : ISODate("2022-03-01T20:49:01.696+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("621e86bd165a125540a3f703"), 
+    "role" : "user", 
+    "id" : "", 
+    "email" : "kei19851203@gmail.com", 
+    "password" : "$2a$08$IujlDk9qUPOHS9tyvzv2eODaTQe3Gyud4/X2tb.9fJh/.xFkCpBEe", 
+    "avatar" : "/img/user.png", 
+    "personalInfo" : {
+        "_id" : ObjectId("621e86bd165a125540a3f704"), 
+        "name" : "石田啓一郎", 
+        "furigana" : "", 
+        "birthday" : ISODate("1970-01-01T00:00:00.000+0000"), 
+        "phoneNumber" : "", 
+        "locationProvince" : "", 
+        "locationCity" : "", 
+        "extra" : ""
+    }, 
+    "sms" : false, 
+    "emailVerified" : false, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "created_at" : ISODate("2022-03-01T20:49:01.777+0000"), 
+    "updated_at" : ISODate("2022-03-01T20:49:01.777+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("622e0b9a00950e5ea38e76fc"), 
+    "avatar" : "/img/user.png", 
+    "sms" : false, 
+    "emailVerified" : false, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "role" : "user", 
+    "email" : "1oz9rww1010@gmail.com", 
+    "password" : "$2a$08$M.6rH6HuutAf7zf.Ir9J/unzAn.851rS70E1W1jSjPzXedSjPtUo.", 
+    "created_at" : ISODate("2022-03-13T15:19:54.198+0000"), 
+    "updated_at" : ISODate("2022-03-13T15:19:54.198+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("622e3af56ad6f26e3598e63c"), 
+    "avatar" : "/img/user.png", 
+    "sms" : false, 
+    "emailVerified" : true, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "role" : "user", 
+    "email" : "nspafggl@spambox.win", 
+    "password" : "$2a$08$sChomlJ5AFJah3UITL9s2uUJp8ZJynM15lucvIo71GMIDLpT6hc3W", 
+    "created_at" : ISODate("2022-03-13T18:41:57.590+0000"), 
+    "updated_at" : ISODate("2022-03-13T18:47:28.722+0000"), 
+    "__v" : NumberInt(0), 
+    "id" : "nft developer", 
+    "personalInfo" : {
+        "_id" : ObjectId("622e3baa6ad6f26e3598e649"), 
+        "name" : "Vego na", 
+        "furigana" : "Teska yoo", 
+        "phoneNumber" : "0215459", 
+        "birthday" : ISODate("1980-12-21T00:00:00.000+0000"), 
+        "locationProvince" : "東京都", 
+        "locationCity" : "市区町村", 
+        "extra" : "それ以降の住所"
+    }
+}
+{ 
+    "_id" : ObjectId("622fd95b413945820cc1d2f4"), 
+    "avatar" : "/img/user.png", 
+    "sms" : false, 
+    "emailVerified" : true, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "role" : "user", 
+    "email" : "inadomiii@yahoo.co.jp", 
+    "password" : "$2a$08$DNiXY413bgULwMtYIpYKReHZWljWGinZH9TeeHBrFmvorTT..tphe", 
+    "created_at" : ISODate("2022-03-15T00:10:03.200+0000"), 
+    "updated_at" : ISODate("2022-03-15T00:10:20.327+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("623087a3413945820cc1d34b"), 
+    "avatar" : "/img/user.png", 
+    "sms" : false, 
+    "emailVerified" : true, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "role" : "user", 
+    "email" : "minamisawayasu@gmail.com", 
+    "password" : "$2a$08$rxjkA5xfpuHtHKCc2iFveOQUdQnSe9cxoV37SOWrWUmh1yRC54hJ.", 
+    "created_at" : ISODate("2022-03-15T12:33:39.382+0000"), 
+    "updated_at" : ISODate("2022-03-15T12:36:50.214+0000"), 
+    "__v" : NumberInt(0), 
+    "id" : "nereus", 
+    "personalInfo" : {
+        "_id" : ObjectId("62308862413945820cc1d354"), 
+        "name" : "田中　昭太朗", 
+        "furigana" : "タナカ　ショウタロウ", 
+        "phoneNumber" : "08055197890", 
+        "birthday" : ISODate("1986-12-25T00:00:00.000+0000"), 
+        "locationProvince" : "千葉県", 
+        "locationCity" : "千葉市若葉区加曽利町", 
+        "extra" : "73-2メルヴェイユ203"
+    }
+}
+{ 
+    "_id" : ObjectId("6231c39695278aae6b11e1aa"), 
+    "avatar" : "/img/user.png", 
+    "sms" : false, 
+    "emailVerified" : true, 
+    "identityVerified" : NumberInt(-1), 
+    "actived" : NumberInt(1), 
+    "role" : "user", 
+    "email" : "u567504f@alumni.osaka-u.ac.jp", 
+    "password" : "$2a$08$qLNNIx3ePtNosevZflqCzOGjVLNYbzbnUxbaQAsM7HUT21iYmTNxG", 
+    "created_at" : ISODate("2022-03-16T11:01:42.907+0000"), 
+    "updated_at" : ISODate("2022-03-16T11:02:01.570+0000"), 
+    "__v" : NumberInt(0)
+}
