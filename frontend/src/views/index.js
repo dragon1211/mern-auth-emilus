@@ -40,7 +40,7 @@ export const Views = (props) => {
       <ConfigProvider locale={currentAppLocale.antd} direction={direction}>
         <Switch>
           <Route exact path="/">
-            <Redirect to={APP_PREFIX_PATH} />
+            <Redirect to={APP_PREFIX_PATH+'/home'} />
           </Route>
           <Route path={AUTH_PREFIX_PATH}>
             <AuthLayout direction={direction} />
