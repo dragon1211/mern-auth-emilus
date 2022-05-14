@@ -1,8 +1,9 @@
 import { SIDE_NAV_LIGHT, NAV_TYPE_SIDE, DIR_LTR } from 'constants/ThemeConstant';
 import { env } from './EnvironmentConfig'
 
-export const APP_NAME = 'Emilus';
+export const APP_NAME = 'Okaimono';
 export const API_BASE_URL = env.API_ENDPOINT_URL
+export const API_URL = "http://localhost:8080"
 export const APP_PREFIX_PATH = '';
 export const AUTH_PREFIX_PATH = '/auth';
 
