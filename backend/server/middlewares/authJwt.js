@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
+import { APP_CONFIG } from "../configs/app.config";
 
-const config = require("../config/config.js");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
     return res.status(403).send({ message: "No token provided!" });
   }
 
-  jwt.verify(token, config.secret_private_key, (err, decoded) => {
+  jwt.verify(token, APP_CONFIG.secret_private_key, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Unauthorized!" });
     }

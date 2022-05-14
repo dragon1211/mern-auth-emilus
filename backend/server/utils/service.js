@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import path from "path";
 import fs from "fs";
-import config from "../config/config"
+import { APP_CONFIG } from "../configs/app.config"
 
 const CURRENT_WORKING_DIR = process.cwd();
 
@@ -34,7 +34,7 @@ class Service{
     generateGeneralToken = (str) => {
       const verificationToken = jwt.sign(
         { id: str },
-        config.secret_private_key,
+        APP_CONFIG.secret_private_key,
         { expiresIn: "7d" }
       );
       return verificationToken;
@@ -43,7 +43,7 @@ class Service{
     generateOwnerToken = (str) => {
       const verificationToken = jwt.sign(
         { id: str },
-        config.owner_private_key
+        APP_CONFIG.owner_private_key
       );
       return verificationToken;
     }

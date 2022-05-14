@@ -11,7 +11,7 @@ import {
 	showAuthMessage, 
 	hideAuthMessage, 
 	signInWithGoogle, 
-	signInWithFacebook 
+	signInWithFacebook,
 } from 'redux/actions/Auth';
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion"
@@ -38,8 +38,8 @@ export const LoginForm = props => {
 	} = props
 
 	const initialCredential = {
-		email: 'user1@themenate.net',
-		password: '2005ipo'
+		email: '',
+		password: ''
 	}
 
 	const onLogin = values => {
@@ -115,11 +115,11 @@ export const LoginForm = props => {
 					rules={[
 						{ 
 							required: true,
-							message: 'Please input your email',
+							message: 'この項目は必須です！',
 						},
 						{ 
 							type: 'email',
-							message: 'Please enter a validate email!'
+							message: '有効なメールアドレスを入力してください。'
 						}
 					]}>
 					<Input prefix={<MailOutlined className="text-primary" />}/>
@@ -143,7 +143,7 @@ export const LoginForm = props => {
 					rules={[
 						{ 
 							required: true,
-							message: 'Please input your password',
+							message: 'この項目は必須です！',
 						}
 					]}
 				>

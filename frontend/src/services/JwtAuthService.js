@@ -5,7 +5,7 @@ const JwtAuthService = {}
 
 JwtAuthService.login = async function(email, password) {
 	return await axios
-	  .post(`${API_URL}/api/user/auth/signin`, {
+	  .post(`${API_URL}/api/user/auth/login`, {
 	    email,
 	    password
 	})
@@ -13,7 +13,7 @@ JwtAuthService.login = async function(email, password) {
 
 JwtAuthService.signUp = async function (email, password) {
 	return await axios
-	.post(`${API_URL}/api/user/auth/signup`, {
+	.post(`${API_URL}/api/user/auth/signUp`, {
 		email,
 		password
 	});

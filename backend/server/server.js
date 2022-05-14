@@ -5,14 +5,15 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
-import dbConfig from "./config/db.config"
+import dbConfig from "./configs/db.config"
+import { FRONT_URL } from './configs/app.config'
 import db from "./models"
 // routes
 import adminRoute from "./routes/admin.routes";
 import authRoute from "./routes/auth.routes";
 
 require('dotenv').config();
-const FRONT_URL = process.env.FRONT_URL;
+
 const CURRENT_WORKING_DIR = process.cwd();
 var corsOptions = {
   origin: FRONT_URL,
