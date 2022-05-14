@@ -16,7 +16,7 @@ const RegisterOne = props => {
 		<div className="h-100" style={backgroundStyle}>
 			<div className="container d-flex flex-column justify-content-center h-100">
 				<Row justify="center">
-					<Col xs={20} sm={20} md={20} lg={7}>
+					<Col xs={20} sm={20} md={20} lg={10} xl={8}>
 						<Card>
 							<div className="my-2">
 								<div className="text-center">
@@ -24,7 +24,7 @@ const RegisterOne = props => {
 								</div>
 								<Row justify="center">
 									<Col xs={24} sm={24} md={20} lg={20}>
-										<RegisterForm {...props}/>
+										<RegisterForm {...props} allowRedirect={true}/>
 									</Col>
 								</Row>
 								<p className='text-center'>I've already had one. <Link to="/auth/login">Sign In</Link></p>

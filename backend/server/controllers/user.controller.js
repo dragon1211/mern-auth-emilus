@@ -1,5 +1,5 @@
 import db from "../models";
-import { _IDVERIFY_STATUS } from "../config/constant";
+import { _IDVERIFY_STATUS } from "../configs/constant";
 
 const User = db.user;
 

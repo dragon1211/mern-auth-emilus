@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { _IDVERIFY_STATUS } from "../config/constant";
+import { _IDVERIFY_STATUS } from "../configs/constant";
 import db from "../models";
 
 const User = db.user;

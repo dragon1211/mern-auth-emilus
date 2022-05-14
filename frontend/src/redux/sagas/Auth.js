@@ -17,22 +17,42 @@ import {
 } from "../actions/Auth";
 
 import FirebaseService from 'services/FirebaseService'
+import JwtAuthService from 'services/JwtAuthService';
+
+// export function* signInWithFBEmail() {
+//   yield takeEvery(SIGNIN, function* ({payload}) {
+// 		const {email, password} = payload;
+// 		try {
+// 			const user = yield call(FirebaseService.signInEmailRequest, email, password);
+// 			if (user.message) {
+// 				yield put(showAuthMessage(user.message));
+// 			} else {
+// 				localStorage.setItem(AUTH_TOKEN, user.user.uid);
+// 				yield put(authenticated(user.user.uid));
+// 			}
+// 		} catch (err) {
+// 			yield put(showAuthMessage(err));
+// 		}
+// 	});
+// }
 
 export function* signInWithFBEmail() {
-  yield takeEvery(SIGNIN, function* ({payload}) {
-		const {email, password} = payload;
-		try {
-			const user = yield call(FirebaseService.signInEmailRequest, email, password);
-			if (user.message) {
-				yield put(showAuthMessage(user.message));
-			} else {
-				localStorage.setItem(AUTH_TOKEN, user.user.uid);
-				yield put(authenticated(user.user.uid));
+	yield takeEvery(SIGNIN, function* ({payload}) {
+			const {email, password} = payload;
+			try{
+				const response = yield call( JwtAuthService.login, email, password ); 
+				if (response.data.status_code === 200) {
+					delete response.data.status_code;
+					let token = response.data;
+					localStorage.setItem(AUTH_TOKEN, token);
+					yield put(authenticated(token.accessToken));
+				} else {
+					yield put(showAuthMessage(response.data.message));
+				}
+			}  catch (err) {
+				yield put(showAuthMessage(err.toString()));
 			}
-		} catch (err) {
-			yield put(showAuthMessage(err));
-		}
-	});
+	    });
 }
 
 export function* signOut() {
@@ -51,22 +71,43 @@ export function* signOut() {
 	});
 }
 
+// export function* signUpWithFBEmail() {
+//   yield takeEvery(SIGNUP, function* ({payload}) {
+// 		const {email, password} = payload;
+// 		try {
+// 			const user = yield call(FirebaseService.signUpEmailRequest, email, password);
+// 			if (user.message) {
+// 				yield put(showAuthMessage(user.message));
+// 			} else {
+// 				localStorage.setItem(AUTH_TOKEN, user.user.uid);
+// 				yield put(signUpSuccess(user.user.uid));
+// 			}
+// 		} catch (error) {
+// 			yield put(showAuthMessage(error));
+// 		}
+// 	}
+// 	);
+// }
+
 export function* signUpWithFBEmail() {
-  yield takeEvery(SIGNUP, function* ({payload}) {
-		const {email, password} = payload;
-		try {
-			const user = yield call(FirebaseService.signUpEmailRequest, email, password);
-			if (user.message) {
-				yield put(showAuthMessage(user.message));
-			} else {
-				localStorage.setItem(AUTH_TOKEN, user.user.uid);
-				yield put(signUpSuccess(user.user.uid));
+	yield takeEvery(SIGNUP, function* ({payload}) {
+			const {email, password} = payload;
+			try {
+				const response = yield call(JwtAuthService.signUp, email, password);
+				console.log(response);
+				if (response.data.status_code === 200) {
+						delete response.data.status_code;
+						let token = response.data;
+						localStorage.setItem(AUTH_TOKEN, token);
+						yield put(signUpSuccess(token));
+				} else {
+					yield put(showAuthMessage(response.data.message));
+				}
+			} catch (error) {
+				yield put(showAuthMessage(error));
 			}
-		} catch (error) {
-			yield put(showAuthMessage(error));
-		}
-	}
-	);
+	    }
+      );
 }
 
 export function* signInWithFBGoogle() {

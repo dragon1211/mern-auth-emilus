@@ -1,8 +1,8 @@
-var bcrypt = require("bcryptjs");
-var mongoose = require('mongoose');
+const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const config = require('../configs/app.config');
 var Schema = mongoose.Schema;
-var config = require('../config/config');
 
 var personalSchema = new Schema({
   name: String,
@@ -80,7 +80,7 @@ UserSchema.methods.generateVerificationToken = function () {
   const user = this;
   const verificationToken = jwt.sign(
       { ID: user._id },
-      config.default.secret_private_key,
+      config.APP_CONFIG.secret_private_key,
       { expiresIn: "7d" }
   );
   return verificationToken;

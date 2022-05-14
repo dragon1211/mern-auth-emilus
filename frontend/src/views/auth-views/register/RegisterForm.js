@@ -10,30 +10,30 @@ const rules = {
 	email: [
 		{ 
 			required: true,
-			message: 'Please input your email address'
+			message: 'この項目は必須です！'
 		},
 		{ 
 			type: 'email',
-			message: 'Please enter a validate email!'
+			message: 'メールアドレスを入力してください!'
 		}
 	],
 	password: [
 		{ 
 			required: true,
-			message: 'Please input your password'
+			message: 'この項目は必須です！'
 		}
 	],
 	confirm: [
 		{ 
 			required: true,
-			message: 'Please confirm your password!'
+			message: 'パスワードの確認!'
 		},
 		({ getFieldValue }) => ({
 			validator(rule, value) {
 				if (!value || getFieldValue('password') === value) {
 					return Promise.resolve();
 				}
-				return Promise.reject('Passwords do not match!');
+				return Promise.reject('パスワードの確認が一致しません。');
 			},
 		})
 	]

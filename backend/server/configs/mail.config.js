@@ -1,7 +1,6 @@
-import config from "../config/config"
+import { APP_CONFIG, FRONT_URL } from "./app.config"
 
 require('dotenv').config();
-const FRONT_URL = process.env.FRONT_URL;
 
 const textSignup = `様\n
 FANTATIONカスタマーサポートでございます。\n
@@ -13,7 +12,7 @@ ${FRONT_URL}/login\n
 ご不明な点がございましたらお気軽にご連絡くださいませ。\n
 ○●------------------------------------------●○\n
 FANTATIONカスタマーサポート\n
-Mail：${config.support_mail}\n
+Mail：${APP_CONFIG.support_mail}\n
 LINE：https://lin.ee/AMTD31g\n
 URL：${FRONT_URL}/\n
 ○●------------------------------------------●○`;
@@ -25,7 +24,7 @@ FANTATIONカスタマーサポートでございます。\n
 ご回答まで今しばらくお待ちくださいませ。\n
 ○●------------------------------------------●○\n
 FANTATIONカスタマーサポート\n
-Mail：${config.support_mail}\n
+Mail：${APP_CONFIG.support_mail}\n
 LINE：https://lin.ee/AMTD31g\n
 URL：${FRONT_URL}/\n
 ○●------------------------------------------●○`;
@@ -39,7 +38,7 @@ ${url} \n
 URLの有効期限は、このメールを受信してから8時間です。\n
 \n
 サポートが必要な場合は、お手数ですが以下のお問い合わせ先へご連絡ください。\n
-${config.support_mail} \n
+${APP_CONFIG.support_mail} \n
 \n
 引き続きFANTATIONをご利用下さい。 \n
 \n
@@ -48,7 +47,7 @@ ${config.support_mail} \n
 \n
 ○●------------------------------------------●○\n
 FANTATIONカスタマーサポート\n
-Mail：${config.support_mail}\n
+Mail：${APP_CONFIG.support_mail}\n
 LINE：https://lin.ee/AMTD31g\n
 URL：${FRONT_URL}/\n
 ○●------------------------------------------●○`;
@@ -70,7 +69,7 @@ ${FRONT_URL}/login   \n
 \n
 ○●------------------------------------------●○\n
 FANTATIONカスタマーサポート\n
-Mail：${config.support_mail}\n
+Mail：${APP_CONFIG.support_mail}\n
 LINE：https://lin.ee/AMTD31g\n
 URL：${FRONT_URL}/\n
 ○●------------------------------------------●○

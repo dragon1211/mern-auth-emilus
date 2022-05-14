@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
-import config from "../config/config"
+import { APP_CONFIG, FRONT_URL } from "../configs/app.config"
 import mailer from "./mailer";
 import {  
   registerTempMsg,
   textResetPassword
-} from "../config/mail.config";
+} from "../configs/mail.config";
 import db from "../models";
 import Service from "../utils/service";
 
@@ -16,10 +16,9 @@ const User = db.user;
 const EmailActivate = db.email_activate;
 
 const EXPIRE_TIME = 8;
-const FRONT_URL = process.env.FRONT_URL;
 
 
-const signup = (req, res) => {
+const signUp = (req, res) => {
   new User({
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
@@ -41,7 +40,7 @@ const signup = (req, res) => {
     
     let confirm_url = `${FRONT_URL}/verify/email/${vToken}`;
     let msg = {
-      from: config.support_mail, // Sender address
+      from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients
       subject: '【FANTATION】　会員登録にお申し込みいただき、ありがとうございます。', // Subject line
       text:  registerTempMsg(confirm_url), // Plain text body
@@ -58,19 +57,22 @@ const signup = (req, res) => {
     })
     .catch(err=>{
       console.log("SMTP Error:", err);
-      return res.status(500).send({
+      return res.send({
+        status_code: 500,
         message: "SMTP Error!"
       });
     })
   })
   .catch(err => {
     if (err) {
+      console.log(err.message)
       if (err.message) {
           let startIdx = err.message.lastIndexOf(':');
           startIdx = startIdx > 0 ? startIdx + 1 : startIdx;
           err.message = err.message.substr(startIdx);
       }
-      return res.status(500).send({
+      return res.send({
+        status_code: 500,
         message: err.message || "エラーが発生しました!"
       });
     }
@@ -78,7 +80,7 @@ const signup = (req, res) => {
 
 };
 
-const signin = (req, res) => {
+const login = (req, res) => {
   console.log(req.body);
   User.findOne({
     email: req.body.email,
@@ -86,7 +88,7 @@ const signin = (req, res) => {
   })
   .then(user => {
     if (!user) {
-      return res.send({ status_code: 400, message: "ログインに失敗しました。10回連続で失敗すると、一定期間ログインできなくなります。" });
+      return res.send({ status_code: 400, message: "ログインに失敗しました。\n10回連続で失敗すると、一定期間ログインできなくなります。" });
     }
     user.comparePassword(req.body.password, function (err, isMatch) {
       if (isMatch && !err) {
@@ -113,7 +115,8 @@ const signin = (req, res) => {
       err.message = err.message.substr(startIdx);
       console.log("err", err.message);
     }
-    return res.status(500).send({
+    return res.send({
+      status_code: 500,
       message: err.message || "エラーが発生しました!"
     });
   })
@@ -157,7 +160,7 @@ const sendLinkOfResetPassword = async (req, res) => {
 
     let confirm_url = `${FRONT_URL}/forgot-password/reset/${token}`;
     let msg = {
-      from: config.support_mail, // Sender address
+      from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients
       subject: '【FANTATION】　パスワード再設定', // Subject line
       text:  textResetPassword(confirm_url), // Plain text body
@@ -274,7 +277,7 @@ const sendLinkOfVerifyEmail = async (req, res) => {
     
         let confirm_url = `${FRONT_URL}/verify/email/${token}`;
         let msg = {
-          from: config.support_mail, // Sender address
+          from: APP_CONFIG.support_mail, // Sender address
           to: req.body.new_email, // List of recipients
           subject: '【FANTATION】　会員登録にお申し込みいただき、ありがとうございます。', // Subject line
           text:  registerTempMsg(confirm_url), // Plain text body
@@ -389,8 +392,8 @@ const withdrawal = (req, res) => {
 
 
 export default {
-  signup,
-  signin,
+  signUp,
+  login,
   sendLinkOfResetPassword,
   resetPassword,
   checkLinkOfResetPassword,
