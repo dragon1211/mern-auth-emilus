@@ -28,11 +28,12 @@ const updatePersonalInfo = (req, res) => {
       locationCity: req.body.locationCity,
       extra: req.body.extra,
     },
+    nickname: req.body.nickname,
     identityVerified: _IDVERIFY_STATUS.default
   };
 
   User
-    .findOneAndUpdate({ _id: req.body.id }, updatedUser, {returnOriginal: false})
+    .findOneAndUpdate({ _id: req.body._id }, updatedUser, {returnOriginal: false})
     .exec()
     .then(record => {
       return res.send(record);
@@ -44,29 +45,13 @@ const updatePersonalInfo = (req, res) => {
     });
 }
 
-const updateNickname = (req, res) => {
-  const updatedUser = {
-    nickname: req.body.nickname
-  };
-  User
-    .findOneAndUpdate({ _id: req.body.id }, updatedUser, {returnOriginal: false})
-    .exec()
-    .then(record => {
-      return res.send(record);
-    })
-    .catch(err=>{
-      return res.status(500).send({
-        message: err.message || "エラーが発生しました!"
-      })
-    });
-}
 
 const updateUserAvatar = (req, res) => {
   const updatedUser = {
     avatar: req.body.avatar
   };
   User
-    .findOneAndUpdate({ _id: req.body.id }, updatedUser, {returnOriginal: false})
+    .findOneAndUpdate({ _id: req.body._id }, updatedUser, {returnOriginal: false})
     .exec()
     .then(record => {
       return res.send(record);
@@ -78,64 +63,10 @@ const updateUserAvatar = (req, res) => {
     });
 }
 
-const updateUserWarrant = (req, res) => {
-  const updatedUser = {
-    warrant: req.body.warrant,
-    identityVerified: _IDVERIFY_STATUS.applying
-  };
-  User
-    .findOneAndUpdate({ _id: req.body.id }, updatedUser, {returnOriginal: false})
-    .exec()
-    .then(record => {
-      return res.send(record);
-    })
-    .catch(err=>{
-      return res.status(500).send({
-        message: err.message || "エラーが発生しました!"
-      })
-    });
-}
-
-// Affiliant 
-const getPartners = async (req, res) => {
-  let arr = [{ "_id": req.query.id }];
-  let tear1 = await getPartner(arr);
-  let tear2 = await getPartner(tear1);
-  let tear3 = await getPartner(tear2);
-  let tear4 = await getPartner(tear3);
-  let tear5 = await getPartner(tear4);
-  res.json({
-    "tear1": tear1,
-    "tear2": tear2,
-    "tear3": tear3,
-    "tear4": tear4,
-    "tear5": tear5
-  })
-}
-
-const getPartner = async (records) => {
-  let ids = [];
-  for(let x in records){
-    ids.push(records[x]._id);
-  }
-  return await User
-  .find({"introducer": ids})
-  .exec()
-  .then(res => {
-    let temp = [];
-    for(let y in res){
-      temp.push(res[y]._doc);
-    }
-    return temp;
-  })
-}
 
 
 export default {
   getInfo,
   updatePersonalInfo,
-  updateNickname,
   updateUserAvatar,
-  updateUserWarrant,
-  getPartners,
 }

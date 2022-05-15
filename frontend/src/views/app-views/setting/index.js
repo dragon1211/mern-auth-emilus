@@ -5,8 +5,6 @@ import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import InnerAppLayout from 'layouts/inner-app-layout';
 import EditProfile from './EditProfile';
 import ChangePassword from './ChangePassword';
-import Billing from './Billing';
-import Notification from './Notification';
 
 const SettingOption = ({ match, location }) => {
 	return (
@@ -25,16 +23,6 @@ const SettingOption = ({ match, location }) => {
 				<span>Change Password</span>
 				<Link to={'change-password'} />
 			</Menu.Item>
-			<Menu.Item key={`${match.url}/billing`}>
-				<CreditCardOutlined />
-				<span>Billing</span>
-				<Link to={`billing`} />
-			</Menu.Item>
-			<Menu.Item key={`${match.url}/notification`}>
-				<BellOutlined />
-				<span>Notification</span>
-				<Link to={`notification`} />
-			</Menu.Item>
 		</Menu>
 	);
 };
@@ -45,8 +33,6 @@ const SettingContent = ({ match }) => {
 			<Redirect exact from={`${match.url}`} to={`${match.url}/edit-profile`} />
 			<Route path={`${match.url}/edit-profile`} component={EditProfile} />
 			<Route path={`${match.url}/change-password`} component={ChangePassword} />
-			<Route path={`${match.url}/billing`} component={Billing} />
-			<Route path={`${match.url}/notification`} component={Notification} />
 		</Switch>
 	)
 }

@@ -1,50 +1,35 @@
 import React from "react";
 import { Menu, Dropdown, Avatar } from "antd";
+import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { 
   EditOutlined, 
-  SettingOutlined, 
-  ShopOutlined, 
-  QuestionCircleOutlined, 
-  LogoutOutlined 
+  SettingOutlined,
+  LogoutOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 import Icon from 'components/util-components/Icon';
 import { signOut } from 'redux/actions/Auth';
+import UserService from "services/UserService";
 
-const menuItem = [
-	{
-		title: "Edit Profile",
-		icon: EditOutlined ,
-		path: "/"
-    },
-    
+const menuItem = [    
     {
-		title: "Account Setting",
+		title: "Setting",
 		icon: SettingOutlined,
-		path: "/"
-    },
-    {
-		title: "Billing",
-		icon: ShopOutlined ,
-		path: "/"
-	},
-    {
-		title: "Help Center",
-		icon: QuestionCircleOutlined,
-		path: "/"
-	}
+		path: "/setting"
+    }
 ]
 
 export const NavProfile = ({signOut}) => {
-  const profileImg = "/img/avatars/thumb-1.jpg";
+  const user = UserService.getCurrentUser();
+
   const profileMenu = (
     <div className="nav-profile nav-dropdown">
       <div className="nav-profile-header">
         <div className="d-flex">
-          <Avatar size={45} src={profileImg} />
           <div className="pl-3">
-            <h4 className="mb-0">Charlie Howard</h4>
-            <span className="text-muted">Frontend Developer</span>
+            <h4 className="mb-0">{user?.nickname}</h4>
+            <span className="text-muted">{user?.email}</span>
           </div>
         </div>
       </div>
@@ -53,10 +38,10 @@ export const NavProfile = ({signOut}) => {
           {menuItem.map((el, i) => {
             return (
               <Menu.Item key={i}>
-                <a href={el.path}>
+                <Link to={el.path}>
                   <Icon type={el.icon} />
                   <span className="font-weight-normal">{el.title}</span>
-                </a>
+                </Link>
               </Menu.Item>
             );
           })}
@@ -74,7 +59,7 @@ export const NavProfile = ({signOut}) => {
     <Dropdown placement="bottomRight" overlay={profileMenu} trigger={["click"]}>
       <Menu className="d-flex align-item-center" mode="horizontal">
         <Menu.Item key="profile">
-          <Avatar src={profileImg} />
+          <Avatar src={ user?.avatar } icon={<UserOutlined />}/>
         </Menu.Item>
       </Menu>
     </Dropdown>

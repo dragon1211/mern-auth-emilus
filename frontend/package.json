@@ -20,6 +20,7 @@
     "google-map-react": "^2.1.9",
     "history": "^4.10.1",
     "immutability-helper": "^3.1.1",
+    "ipfs-http-client": "^56.0.3",
     "lodash": "^4.17.20",
     "rc-tween-one": "^2.7.3",
     "react": "^17.0.1",
