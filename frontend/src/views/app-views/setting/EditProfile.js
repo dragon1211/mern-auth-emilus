@@ -154,6 +154,12 @@ const EditProfile = () => {
 									<Form.Item
 										label="電話番号"
 										name="phoneNumber"
+										rules={[
+											{
+												required: true,
+												message: 'この項目は必須です！'
+											},
+										]}
 									>
 										<Input />
 									</Form.Item>
@@ -162,6 +168,12 @@ const EditProfile = () => {
 									<Form.Item
 										label="生年月日"
 										name="birthday"
+										rules={[
+											{
+												required: true,
+												message: 'この項目は必須です！'
+											},
+										]}
 									>
 										<DatePicker className="w-100"/>
 									</Form.Item>
