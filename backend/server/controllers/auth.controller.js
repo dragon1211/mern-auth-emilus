@@ -339,6 +339,7 @@ const  changePassword = (req, res) => {
   User.findOne({
     email: req.body.email
   })
+  .exec()
   .then(user => {
     if (!user) {
       return res.send({ 
@@ -372,6 +373,7 @@ const  changePassword = (req, res) => {
     })
   })
   .catch((err)=>{
+    console.log(err);
     return res.status(500).send(err);
   })
 }

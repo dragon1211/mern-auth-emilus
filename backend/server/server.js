@@ -9,8 +9,9 @@ import dbConfig from "./configs/db.config"
 import { FRONT_URL } from './configs/app.config'
 import db from "./models"
 // routes
-import adminRoute from "./routes/admin.routes";
+
 import authRoute from "./routes/auth.routes";
+import userRoute from "./routes/user.routes";
 
 require('dotenv').config();
 
@@ -35,10 +36,11 @@ app.use(compress())
 app.use(helmet())
 app.use(express.static(path.join(CURRENT_WORKING_DIR, '../frontend/public')))
 
-app.use(adminRoute);
 app.use(authRoute);
+app.use(userRoute);
 
-const mongouri = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`;
+// const mongouri = `mongodb+svr://keike24:Sy6ngN3a@${dbConfig.HOST}:27017/${dbConfig.DB}?retryWrites=true&w=majority`;
+const mongouri = `mongodb://${dbConfig.HOST}:27017/${dbConfig.DB}`;
 db.mongoose.connect(mongouri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

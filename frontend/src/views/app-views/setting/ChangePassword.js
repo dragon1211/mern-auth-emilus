@@ -1,84 +1,107 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Input, Row, Col, message } from 'antd';
+import UserService from 'services/UserService';
+import JwtService from 'services/JwtAuthService';
 
-export class ChangePassword extends Component {
+const ChangePassword = () => {
+
+	const [submit, setSubmit] = useState(false);
+	const changePasswordFormRef = React.createRef();
+
+	const onFinish = values => {
+		setSubmit(false);
+		let user = UserService.getCurrentUser();
+		JwtService.changePassword(user.email, values.password, values.newPassword)
+			.then(res => {
+				setSubmit(false);
+				onReset();
+				if(res.data.status_code === 200){
+					message.success(res.data.message);
+				} else {
+					message.error(res.data.message)
+				}
+			})
+			.catch(error => {
+				setSubmit(false);
+				message.error('エラーか発生しました。')
+				onReset();
+			}
+		);
+	};
+
+	const onReset = () => {
+		changePasswordFormRef.current.resetFields();
+	};
 
 
-	changePasswordFormRef = React.createRef();
-
-	onFinish = () => {
-		message.success({ content: 'Password Changed!', duration: 2 });
-		this.onReset()
-  };
-
-	onReset = () => {
-    this.changePasswordFormRef.current.resetFields();
-  };
-
-	render() {
-
-		return (
-			<>
-				<h2 className="mb-4">Change Password</h2>
-				<Row >
-					<Col xs={24} sm={24} md={24} lg={8}>
-						<Form
-							name="changePasswordForm"
-							layout="vertical"
-							ref={this.changePasswordFormRef}
-							onFinish={this.onFinish}
+	return (
+		<>
+			<h2 className="mb-4">Change Password</h2>
+			<Row >
+				<Col xs={24} sm={24} md={24} lg={12}>
+					<Form
+						name="changePasswordForm"
+						layout="vertical"
+						ref={changePasswordFormRef}
+						onFinish={onFinish}
+					>
+						<Form.Item
+							label="現在のパスワード"
+							name="password"
+							rules={[{ 
+								required: true,
+								message: 'この項目は必須です!' 
+							}]}
 						>
-							<Form.Item
-								label="Current Password"
-								name="currentPassword"
-								rules={[{ 
-									required: true,
-									message: 'Please enter your currrent password!' 
-								}]}
-							>
-								<Input.Password />
-							</Form.Item>
-							<Form.Item
-								label="New Password"
-								name="newPassword"
-								rules={[{ 
-									required: true,
-									message: 'Please enter your new password!' 
-								}]}
-							>
-								<Input.Password />
-							</Form.Item>
-							<Form.Item
-								label="Confirm Password"
-								name="confirmPassword"
-								rules={
-									[
-										{ 
-											required: true,
-											message: 'Please confirm your password!' 
+							<Input.Password />
+						</Form.Item>
+						<Form.Item
+							label="新しいパスワード"
+							name="newPassword"
+							rules={[{ 
+								required: true,
+								message: 'この項目は必須です!' 
+							}]}
+						>
+							<Input.Password />
+						</Form.Item>
+						<Form.Item
+							label="パスワード確認"
+							name="confirmPassword"
+							rules={
+								[
+									{ 
+										required: true,
+										message: 'この項目は必須です!' 
+									},
+									({ getFieldValue }) => ({
+										validator(rule, value) {
+											if (!value || getFieldValue('newPassword') === value) {
+												return Promise.resolve();
+											}
+											return Promise.reject('Password not matched!');
 										},
-										({ getFieldValue }) => ({
-											validator(rule, value) {
-												if (!value || getFieldValue('newPassword') === value) {
-													return Promise.resolve();
-												}
-												return Promise.reject('Password not matched!');
-											},
-										}),
-									]
-								}
-							>
-								<Input.Password />
-							</Form.Item>
-							<Button type="primary" htmlType="submit">
-									Change password
-								</Button>
-						</Form>
-					</Col>
-				</Row>
-			</>
-		)
-	}
+									}),
+								]
+							}
+						>
+							<Input.Password />
+						</Form.Item>
+						<Button 
+							type="primary" 
+							htmlType="submit"
+							loading={submit}	
+						>
+							Change password
+						</Button>
+						<Button onClick={onReset} className="ml-3">
+							Reset
+						</Button>
+					</Form>
+				</Col>
+			</Row>
+		</>
+	)
 }
 
 export default ChangePassword

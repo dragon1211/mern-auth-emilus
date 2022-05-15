@@ -18,6 +18,7 @@ import {
 
 import FirebaseService from 'services/FirebaseService'
 import JwtAuthService from 'services/JwtAuthService';
+import UserService from 'services/UserService';
 
 // export function* signInWithFBEmail() {
 //   yield takeEvery(SIGNIN, function* ({payload}) {
@@ -44,7 +45,7 @@ export function* signInWithFBEmail() {
 				if (response.data.status_code === 200) {
 					delete response.data.status_code;
 					let token = response.data;
-					localStorage.setItem(AUTH_TOKEN, token);
+					UserService.setCurrentUser(token);
 					yield put(authenticated(token.accessToken));
 				} else {
 					yield put(showAuthMessage(response.data.message));
@@ -98,7 +99,7 @@ export function* signUpWithFBEmail() {
 				if (response.data.status_code === 200) {
 						delete response.data.status_code;
 						let token = response.data;
-						localStorage.setItem(AUTH_TOKEN, token);
+						UserService.setCurrentUser(token);
 						yield put(signUpSuccess(token));
 				} else {
 					yield put(showAuthMessage(response.data.message));
