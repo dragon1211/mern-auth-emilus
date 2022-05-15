@@ -42,7 +42,7 @@ const signUp = (req, res) => {
     let msg = {
       from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients
-      subject: '【FANTATION】　会員登録にお申し込みいただき、ありがとうございます。', // Subject line
+      subject: '【OKAIMONO】　会員登録にお申し込みいただき、ありがとうございます。', // Subject line
       text:  registerTempMsg(confirm_url), // Plain text body
     };
 

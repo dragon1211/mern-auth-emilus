@@ -1,109 +1,221 @@
-import React, { Component } from 'react'
-import { Card, Table, Tag, Tooltip, message, Button } from 'antd';
-import { EyeOutlined, DeleteOutlined } from '@ant-design/icons';
+import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
+import { Card, Table, Tag, Tooltip, message, Button,  Input, Select, Popconfirm } from 'antd';
+import { 
+	EyeOutlined, 
+	SearchOutlined,
+	DeleteOutlined,
+	UserOutlined
+ } from '@ant-design/icons';
 import moment from 'moment';
 import UserView from './UserView';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
-import userData from "assets/data/user-list.data.json";
+import Flex from 'components/shared-components/Flex'
+import AdminService from "services/AdminService";
+import utils from 'utils'
 
-export class UserList extends Component {
+const { Option } = Select
 
-	state = {
-		users: userData,
-		userProfileVisible: false,
-		selectedUser: null
-	}
+const userStatusList = [
+	{ key: 'all', label: 'All', value: -1},
+	// { key: 'identityVerified',   label: '本人確認未', value: -1 },
+	// { key: 'identityVerified',   label: '本人確認申請中', value: 0 },
+	// { key: 'identityVerified',   label: '本人確認済み', value: 1 },
+	{ key: 'emailVerified',label: 'メール認証未', value: false },
+	{ key: 'emailVerified',label: 'メール認証済み', value: true },
+	// { key: 'actived',         label: 'Actived', value: 1 },
+	// { key: 'actived',         label: 'Blocked', value: 0 },
+]
 
-	deleteUser = userId => {
-		this.setState({
-			users: this.state.users.filter(item => item.id !== userId),
+
+export const UserList = () => {
+	
+	const [users, setUsers] = useState();
+	const [list, setList] = useState()
+	const [userProfileVisible, setUserProfileVisible] = useState(false);
+	const [selectedUser, setSelectedUser] = useState(null);
+
+	const [searchKey, setSearchKey] = useState('');
+	const [indexSelectBox, setIndexOfSelectBox] = useState(0);
+
+
+	useEffect(()=>{
+		AdminService.getAllUsers()
+		.then(res=>{
+			setUsers(res.data);
+			setList(res.data);
 		})
-		message.success({ content: `Deleted user ${userId}`, duration: 2 });
-	}
+		.catch(()=>{
+			message.error("エラーが発生しました。")
+		})
+	}, [])
 
-	showUserProfile = userInfo => {
-		this.setState({
-			userProfileVisible: true,
-			selectedUser: userInfo
-		});
+
+	const showUserProfile = userInfo => {
+		setUserProfileVisible(true);
+		setSelectedUser(userInfo);
 	};
 	
-	closeUserProfile = () => {
-		this.setState({
-			userProfileVisible: false,
-			selectedUser: null
-    });
+	const closeUserProfile = () => {
+		setUserProfileVisible(false);
+		setSelectedUser(null);
 	}
 
-	render() {
-		const { users, userProfileVisible, selectedUser } = this.state;
+	const deleteUser = (id) => {
+		AdminService.deleteOneOfUser(id)
+		.then(res => {
+			setUsers(res.data);
+			setList(res.data);
+			message.success("ユーザーを削除しました!")
+		})
+		.catch(()=>{
+			message.error("エラーが発生しました。")
+		})
+	}
 
-		const tableColumns = [
-			{
-				title: 'User',
-				dataIndex: 'name',
-				render: (_, record) => (
-					<div className="d-flex">
-						<AvatarStatus src={record.img} name={record.name} subTitle={record.email}/>
-					</div>
-				),
-				sorter: {
-					compare: (a, b) => {
-						a = a.name.toLowerCase();
-  						b = b.name.toLowerCase();
-						return a > b ? -1 : b > a ? 1 : 0;
-					},
-				},
-			},
-			{
-				title: 'Role',
-				dataIndex: 'role',
-				sorter: {
-					compare: (a, b) => a.role.length - b.role.length,
-				},
-			},
-			{
-				title: 'Last online',
-				dataIndex: 'lastOnline',
-				render: date => (
-					<span>{moment.unix(date).format("MM/DD/YYYY")} </span>
-				),
-				sorter: (a, b) => moment(a.lastOnline).unix() - moment(b.lastOnline).unix()
-			},
-			{
-				title: 'Status',
-				dataIndex: 'status',
-				render: status => (
-					<Tag className ="text-capitalize" color={status === 'active'? 'cyan' : 'red'}>{status}</Tag>
-				),
-				sorter: {
-					compare: (a, b) => a.status.length - b.status.length,
-				},
-			},
-			{
-				title: '',
-				dataIndex: 'actions',
-				render: (_, elm) => (
-					<div className="text-right d-flex justify-content-end">
-						<Tooltip title="View">
-							<Button type="primary" className="mr-2" icon={<EyeOutlined />} onClick={() => {this.showUserProfile(elm)}} size="small"/>
-						</Tooltip>
-						<Tooltip title="Delete">
-							<Button danger icon={<DeleteOutlined />} onClick={()=> {this.deleteUser(elm.id)}} size="small"/>
-						</Tooltip>
-					</div>
-				)
-			}
-		];
-		return (
-			<Card bodyStyle={{'padding': '0px'}}>
-				<div className="table-responsive">
-					<Table columns={tableColumns} dataSource={users} rowKey='id' />
+	const tableColumns = [
+		{
+			title: '名前',
+			dataIndex: 'name',
+			render: (_, record) => (
+				<div className="d-flex">
+					<AvatarStatus src={record?.avatar} icon={<UserOutlined />} name={record.personalInfo?.name} subTitle={record.email}/>
 				</div>
-				<UserView data={selectedUser} visible={userProfileVisible} close={()=> {this.closeUserProfile()}}/>
-			</Card>
-		)
+			),
+			sorter: {
+				compare: (a, b) => {
+					a = a.email.toLowerCase();
+					  b = b.email.toLowerCase();
+					return a > b ? -1 : b > a ? 1 : 0;
+				},
+			},
+		},
+		{
+			title: '登録日',
+			dataIndex: 'created_at',
+			render: created_at => (
+				<span>{moment(created_at).format("MM/DD/YYYY")} </span>
+			),
+			sorter: (a, b) => moment(a.created_at) - moment(b.created_at)
+		},
+		{
+			title: 'メール認証',
+			dataIndex: 'emailVerified',
+			render: emailVerified => (
+				<Tag className ="text-capitalize" 
+					color={ !emailVerified ? 'volcano' : 'cyan'}>
+						{ !emailVerified ? '未' : '済み'}
+				</Tag>
+			),
+			sorter: {
+				compare: (a, b) => a.emailVerified - b.emailVerified,
+			},
+		},
+		{
+			title: '',
+			dataIndex: 'actions',
+			render: (_, elm) => (
+				<div className="text-right d-flex justify-content-end">
+					<Tooltip title="View">
+						<Button type="primary" className="mr-2" icon={<EyeOutlined />} onClick={() => {showUserProfile(elm)}} size="small"/>
+					</Tooltip>
+					<Tooltip title="Delete">
+						<Popconfirm
+							title="本当に削除しますか？"
+							onConfirm={()=> {deleteUser(elm._id)}}
+							okText="YES"
+							cancelText="NO"
+							placement="rightTop"
+						> 
+							<Button danger icon={<DeleteOutlined />} size="small"/>
+						</Popconfirm>
+					</Tooltip>
+				</div>
+			)
+		}
+	];
+
+
+	const onSearch = e => {
+		const value = e.currentTarget.value
+		setSearchKey(value);
 	}
+
+	const changeSelectBox = (value) => {
+		setIndexOfSelectBox(value);
+	}
+
+	useEffect(()=>{
+		if(users){
+			const data = searchUserWithNameAndEmail(users, searchKey);
+			if(indexSelectBox === 0){
+				setList(data);
+			} else {
+				let key = userStatusList[indexSelectBox].key;
+				let value = userStatusList[indexSelectBox].value;
+				let result = utils.filterArray(data, key, value);
+				setList(result);
+			}
+		}
+	}, [users, indexSelectBox, searchKey]);
+
+
+	const  searchUserWithNameAndEmail = (list, input) => {
+		const searchText = (item) => {
+			var keys = ['personalInfo', 'email', 'id'];
+			for(let i = 0; i < keys.length; i ++){
+				if(item[keys[i]]){
+					if(i === 0){
+						for(let key in item.personalInfo){
+							if(item.personalInfo[key] && item.personalInfo[key].toUpperCase().indexOf(input.toString().toUpperCase()) !== -1){
+								return true;
+							}
+						}
+					} else {
+						if(item[keys[i]].toUpperCase().indexOf(input.toString().toUpperCase()) !== -1){
+							return true;
+						}
+					}
+				}
+			}
+		};
+		list = list.filter(value => searchText(value));
+		return list;
+	}
+
+
+	if(!users) return null;
+	return (
+		<Card>
+			<Flex alignItems="center" justifyContent="between" mobileFlex={false}>
+				<Flex className="mb-1" mobileFlex={false}>
+					<div className="mr-md-3 mb-3">
+						<Input placeholder="Search" prefix={<SearchOutlined />} 
+							onChange={e => onSearch(e)}
+						/>
+					</div>
+					<div className="mb-3">
+						<Select 
+							defaultValue={0} 
+							className="w-100" 
+							style={{ minWidth: 180 }} 
+							onChange={changeSelectBox} 
+							placeholder="Status"
+						>
+							{userStatusList.map((elm, index) => <Option key={elm.label} value={index}>{elm.label}</Option>)}
+						</Select>
+					</div>
+				</Flex>
+				<h4 className="ml-3 float-right font-yuMincho">
+					{`検索結果: ${list ? list.length : users.length}人`}
+				</h4>
+			</Flex>
+			<div className="table-responsive">
+				<Table columns={tableColumns} dataSource={list} rowKey="_id"/>
+			</div>
+			<UserView data={selectedUser} visible={userProfileVisible} close={closeUserProfile}/>
+		</Card>
+	)
 }
 
 export default UserList

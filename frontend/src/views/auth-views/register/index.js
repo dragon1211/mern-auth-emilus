@@ -27,7 +27,7 @@ const RegisterOne = props => {
 										<RegisterForm {...props} allowRedirect={true}/>
 									</Col>
 								</Row>
-								<p className='text-center'>I've already had one. <Link to="/auth/login">Sign In</Link></p>
+								<p className='text-center'>I've already had account. <Link to="/auth/login">Sign In</Link></p>
 							</div>
 						</Card>
 					</Col>
