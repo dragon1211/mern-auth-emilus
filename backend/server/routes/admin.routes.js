@@ -2,17 +2,8 @@ import express from "express";
 import AdminCtrl from "../controllers/admin.controller";
 const router = express.Router();
 
-router.route("/api/admin/auth/signin").post(AdminCtrl.adminSignin);
-router.route("/api/admin/auth/changePassword").put(AdminCtrl.changePassword)
-
-router.route("/api/admin/update/profile").put(AdminCtrl.updateProfile);
-router.route("/api/admin/update/avatar").put(AdminCtrl.updateAvatar);
-
-
-router.route("/api/admin/users/all/get").get(AdminCtrl.getAllUsers);
-router.route("/api/admin/users/:id/get").get(AdminCtrl.getUserOne);
-router.route("/api/admin/users/:id/set/confirmed/identity").put(AdminCtrl.setConfirmedIdentity);
-router.route("/api/admin/users/:id/set/disable").put(AdminCtrl.setDisableAccount);
-router.route("/api/admin/users/:id/delete").delete(AdminCtrl.deleteUser);
+router.route("/api/admin/users/get/all").get(AdminCtrl.getAllUsers);
+router.route("/api/admin/users/get/:id").get(AdminCtrl.getOneOfUser);
+router.route("/api/admin/users/delete/:id").delete(AdminCtrl.deleteOneOfUser);
 
 export default router;

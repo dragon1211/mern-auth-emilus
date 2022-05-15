@@ -23,7 +23,7 @@ class UserService{
   }
 
   
-  //-----------Identity Management----------//
+  //-----------Profile Management----------//
   async updatePersonalInfo(personalObj) {
     return await axios
       .put(`${API_URL}/api/user/update/personal-info`, personalObj)

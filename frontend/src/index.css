@@ -17,9 +17,20 @@
   color: #3e79f7;
 }
 
+
 label, 
+.ant-alert-message,
 .ant-message-notice-content,
-.ant-form-item-explain-error
+.ant-form-item-explain-error,
+.ant-table-column-title,
+.ant-tag,
+.ant-select,
+.ant-select-item-option-content,
+.ant-popover-message-title
 {
+  font-family: 'yu-mincho-pr6n', 'sans-serif'
+}
+
+.font-yuMincho{
   font-family: 'yu-mincho-pr6n', 'sans-serif'
 }

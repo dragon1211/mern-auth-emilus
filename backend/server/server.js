@@ -12,6 +12,7 @@ import db from "./models"
 
 import authRoute from "./routes/auth.routes";
 import userRoute from "./routes/user.routes";
+import adminRoute from "./routes/admin.routes";
 
 require('dotenv').config();
 
@@ -38,6 +39,7 @@ app.use(express.static(path.join(CURRENT_WORKING_DIR, '../frontend/public')))
 
 app.use(authRoute);
 app.use(userRoute);
+app.use(adminRoute);
 
 // const mongouri = `mongodb+svr://keike24:Sy6ngN3a@${dbConfig.HOST}:27017/${dbConfig.DB}?retryWrites=true&w=majority`;
 const mongouri = `mongodb://${dbConfig.HOST}:27017/${dbConfig.DB}`;
