@@ -16,3 +16,10 @@
 .loading .ant-spin {
   color: #3e79f7;
 }
+
+label, 
+.ant-message-notice-content,
+.ant-form-item-explain-error
+{
+  font-family: 'yu-mincho-pr6n', 'sans-serif'
+}
