@@ -32,7 +32,8 @@ const EditProfile = () => {
 			name: values.name,
 			furigana: values.furigana,
 			phoneNumber: values.phoneNumber,
-			birthday: values.birthday.toString()
+			birthday: values.birthday.toString(),
+			address: values.address
 		}
 		setSubmit(true);
 		UserService.updatePersonalInfo(req)
@@ -100,6 +101,7 @@ const EditProfile = () => {
 							'furigana': user.personalInfo?.furigana,
 							'birthday': moment(user.personalInfo?.birthday),
 							'phoneNumber': user.personalInfo?.phoneNumber,
+							'address': user.personalInfo?.address,
 						}
 					}
 					onFinish={onFinish}
@@ -176,6 +178,20 @@ const EditProfile = () => {
 										]}
 									>
 										<DatePicker className="w-100"/>
+									</Form.Item>
+								</Col>
+								<Col xs={24} sm={24} md={24}>
+									<Form.Item
+										label="住所"
+										name="address"
+										rules={[
+											{
+												required: true,
+												message: 'この項目は必須です！',
+											},
+										]}
+									>
+										<Input />
 									</Form.Item>
 								</Col>
 							</Row>

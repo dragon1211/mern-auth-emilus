@@ -24,9 +24,7 @@ const updatePersonalInfo = (req, res) => {
       furigana: req.body.furigana,
       phoneNumber: req.body.phoneNumber,
       birthday: req.body.birthday,
-      locationProvince: req.body.locationProvince,
-      locationCity: req.body.locationCity,
-      extra: req.body.extra,
+      address: req.body.address
     },
     nickname: req.body.nickname,
     identityVerified: _IDVERIFY_STATUS.default

@@ -9,9 +9,7 @@ var personalSchema = new Schema({
   furigana: String,
   phoneNumber: String,
   birthday: Date,
-  locationProvince: String,
-  locationCity: String,
-  extra: String,
+  address: String
 });
 
 var statusSchema = new Schema({
