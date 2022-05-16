@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button, Form, Input, Divider, Alert } from "antd";
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
@@ -126,20 +127,7 @@ export const LoginForm = props => {
 				</Form.Item>
 				<Form.Item 
 					name="password" 
-					label={
-						<div className={`${showForgetPassword? 'd-flex justify-content-between w-100 align-items-center' : ''}`}>
-							<span>Password</span>
-							{
-								showForgetPassword && 
-								<span 
-									onClick={() => onForgetPasswordClick} 
-									className="cursor-pointer font-size-sm font-weight-normal text-muted"
-								>
-									Forget Password?
-								</span>
-							} 
-						</div>
-					} 
+					label="Password"
 					rules={[
 						{ 
 							required: true,
@@ -149,6 +137,13 @@ export const LoginForm = props => {
 				>
 					<Input.Password prefix={<LockOutlined className="text-primary" />}/>
 				</Form.Item>
+				<div className='d-flex mb-3'>
+					<span 
+						className="cursor-pointer font-size-sm font-weight-normal text-muted"
+					>
+						<Link to="/auth/forgot-password">Forget Password?</Link>
+					</span>
+				</div>
 				<Form.Item>
 					<Button type="primary" htmlType="submit" block loading={loading}>
 						Sign In

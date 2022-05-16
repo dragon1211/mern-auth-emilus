@@ -23,7 +23,7 @@ export class UserView extends Component {
 				visible={visible}
 			>
 				<div className="text-center mt-3">
-					<Avatar size={80} src={data.avatar} />
+					<Avatar size={80} src={data.avatar} icon={<UserOutlined />}/>
 					<h3 className="mt-2 mb-0">{data.name}</h3>
 					<span className="text-muted">{data.nickname}</span>
 				</div>
@@ -52,33 +52,15 @@ export class UserView extends Component {
 						data.email &&
 						<p>
 							<MailOutlined />
-							<span className="ml-3 text-dark">Email:　{data.email}</span>
+							<span className="ml-3 text-dark">Mail:　{data.email}</span>
 						</p>
 					}
 					{
-						data.personalInfo?.locationProvince &&
+						data.personalInfo?.address &&
 						<p>
 							<CompassOutlined />
 							<span className="ml-3 text-dark">
-								都道府県:　{data.personalInfo?.locationProvince}
-							</span>
-						</p>
-					}
-					{
-						data.personalInfo?.locationCity &&
-						<p>
-							<CompassOutlined />
-							<span className="ml-3 text-dark">
-								市区町村:　{data.personalInfo?.locationCity}
-							</span>
-						</p>
-					}
-					{
-						data.personalInfo?.extra &&
-						<p>
-							<CompassOutlined />
-							<span className="ml-3 text-dark">
-								住所:　{data.personalInfo?.extra}
+								Addr:　{data.personalInfo?.address}
 							</span>
 						</p>
 					}
