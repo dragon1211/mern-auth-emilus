@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser'
 import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
-import dbConfig from "./configs/db.config"
 import { FRONT_URL } from './configs/app.config'
 import db from "./models"
 // routes
@@ -42,7 +41,7 @@ app.use(userRoute);
 app.use(adminRoute);
 
 // const mongouri = `mongodb+svr://keike24:Sy6ngN3a@${dbConfig.HOST}:27017/${dbConfig.DB}?retryWrites=true&w=majority`;
-const mongouri = `mongodb://${dbConfig.HOST}:27017/${dbConfig.DB}`;
+const mongouri = `mongodb://localhost:27017/okaimono_db`;
 db.mongoose.connect(mongouri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
