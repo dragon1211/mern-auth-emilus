@@ -39,7 +39,6 @@ const EditProfile = () => {
 		UserService.updatePersonalInfo(req)
 		.then(res => {
 			setSubmit(false);
-			console.log(res.data);
 			UserService.setCurrentUser(res.data);
 			message.success("プロフィールを更新しました!");
 		})
