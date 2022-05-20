@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Card, Row, Col, Form, Input, Button, message } from "antd";
 import { MailOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
+import JwtAuthService from 'services/JwtAuthService';
 
 const backgroundStyle = {
 	backgroundImage: 'url(/img/others/img-17.jpg)',
@@ -16,23 +17,28 @@ const ForgotPassword = () => {
 	const theme = useSelector(state => state.theme.currentTheme)
 
 	const onSend = values => {
-		setLoading(true)
-		setTimeout(() => {
-		setLoading(false)
-			message.success('New password has send to your email!');
-		}, 1500);
+		setLoading(true);
+		JwtAuthService.sendLinkOfResetPassword(values.email)
+		.then(res=>{
+			if(res.data.status_code === 200){
+				message.success("Reset password request is sent your email!");
+			} else {
+				message.error(res.data.message);
+			}
+			setLoading(false);
+		})
 	};
 
 	return (
 		<div className="h-100" style={backgroundStyle}>
 			<div className="container d-flex flex-column justify-content-center h-100">
 				<Row justify="center">
-					<Col xs={20} sm={20} md={20} lg={9}>
+					<Col xs={20} sm={20} md={20} lg={9} xl={8}>
 						<Card>
 							<div className="my-2">
 								<div className="text-center">
 									<img className="img-fluid" src={`/img/${theme === 'light' ? 'logo.png': 'logo-white.png'}`} alt="" />
-									<h3 className="mt-3 font-weight-bold">Forgot Password?</h3>
+									{/* <h3 className="mt-3 font-weight-bold">Forgot Password?</h3> */}
 									<p className="mb-4">Enter your Email to reset password</p>
 								</div>
 								<Row justify="center">

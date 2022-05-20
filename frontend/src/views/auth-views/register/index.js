@@ -16,7 +16,7 @@ const RegisterOne = props => {
 		<div className="h-100" style={backgroundStyle}>
 			<div className="container d-flex flex-column justify-content-center h-100">
 				<Row justify="center">
-					<Col xs={20} sm={20} md={20} lg={10} xl={8}>
+					<Col xs={20} sm={20} md={20} lg={9} xl={7}>
 						<Card>
 							<div className="my-2">
 								<div className="text-center">

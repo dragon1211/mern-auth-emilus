@@ -161,7 +161,7 @@ const sendLinkOfResetPassword = async (req, res) => {
     let msg = {
       from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients
-      subject: '【FANTATION】　パスワード再設定', // Subject line
+      subject: '【OKAIMONO】　パスワード再設定', // Subject line
       text:  textResetPassword(confirm_url), // Plain text body
     };
 
@@ -176,11 +176,15 @@ const sendLinkOfResetPassword = async (req, res) => {
     })
     .catch(err=>{
       console.log("SMTP Error:", err);
-      return res.status(500).send({ message: 'SMTP Error', token: token });
+      return res.send({ 
+        status_code: 500, 
+        message: 'SMTP Error', token: token });
     })
   })
   .catch(err => {
-    return res.status(500).send({ message: 'エラーが発生しました' });
+    return res.send({ 
+      status_code: 500, 
+      message: 'エラーが発生しました' });
   })
 }
 
