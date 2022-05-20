@@ -83,7 +83,7 @@ const login = (req, res) => {
   console.log(req.body);
   User.findOne({
     email: req.body.email,
-    role: "user"
+    // role: "user"
   })
   .then(user => {
     if (!user) {
