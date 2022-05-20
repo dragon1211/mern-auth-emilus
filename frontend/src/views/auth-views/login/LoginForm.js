@@ -149,9 +149,9 @@ export const LoginForm = props => {
 						Sign In
 					</Button>
 				</Form.Item>
-				{
+				{/* {
 					otherSignIn ? renderOtherSignIn : null
-				}
+				} */}
 				{ extra }
 			</Form>
 		</>
