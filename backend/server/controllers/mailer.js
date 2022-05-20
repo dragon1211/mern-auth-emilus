@@ -13,8 +13,8 @@ var mailer_reg = nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com', 
     auth: {
-        user: 'fantation2022@gmail.com',
-        pass: 'fant2022'
+        user: 'nft.okaimono@gmail.com',
+        pass: '67d%+Gp*_G2B'
     }
 });
 
