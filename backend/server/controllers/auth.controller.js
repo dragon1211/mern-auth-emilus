@@ -22,7 +22,6 @@ const signUp = (req, res) => {
   new User({
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
-    introducer: req.body.introducer,
   })
   .save()
   .then(user => {
