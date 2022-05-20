@@ -22,7 +22,6 @@ var statusSchema = new Schema({
 
 var UserSchema = new Schema({
   nickname: {type: String, default: ""},
-  introducer:  {type: mongoose.Schema.Types.ObjectId, ref: 'User'},       // Affiliate introducer id
   email: {
     type: String,
     required: true,
