@@ -382,18 +382,6 @@ const  changePassword = (req, res) => {
 }
 
 
-const withdrawal = (req, res) => {
-  User.findOneAndDelete({
-    _id: req.body.id
-  })
-  .then(()=>{
-    return res.send({status_code: 200})
-  })
-  .catch(()=>{
-    return res.status(500).send({message: "ERROR!"});
-  })
-}
-
 
 
 export default {
@@ -404,6 +392,5 @@ export default {
   checkLinkOfResetPassword,
   verifyEmail,
   sendLinkOfVerifyEmail,
-  changePassword,
-  withdrawal
+  changePassword
 }
