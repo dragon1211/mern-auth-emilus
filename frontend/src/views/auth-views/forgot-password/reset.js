@@ -4,6 +4,7 @@ import { Card, Row, Col, Form, Input, Button, message } from "antd";
 import { LockOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import JwtAuthService from 'services/JwtAuthService';
+import { AUTH_PREFIX_PATH } from 'configs/AppConfig'
 
 const backgroundStyle = {
 	backgroundImage: 'url(/img/others/img-17.jpg)',
@@ -66,7 +67,9 @@ const ResetPassword = (props) => {
 		JwtAuthService.resetPassword(_token, values.password)
 		.then(res=>{
 			if(res.data.status_code === 200){
-				message.success("Successfully changed!");
+				message.success("Successfully changed!", ()=>{
+					history.pushname(`${AUTH_PREFIX_PATH}/login`);
+				});
 			} else {
 				message.error(res.data.message);
 			}

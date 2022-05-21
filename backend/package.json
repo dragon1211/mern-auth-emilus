@@ -1,7 +1,7 @@
 {
-  "name": "fantation_db",
+  "name": "okaimono",
   "version": "1.0.0",
-  "description": "Fantation Database",
+  "description": "Okaimono Backend",
   "main": "server.js",
   "author": "Takata",
   "license": "ISC",
