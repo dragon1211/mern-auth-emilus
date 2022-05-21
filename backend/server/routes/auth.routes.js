@@ -20,7 +20,5 @@ router.route("/api/user/auth/verifyEmail/:token").post(authCtrl.verifyEmail);
 router.route("/api/user/auth/sendLinkOfVerifyEmail").post(authCtrl.sendLinkOfVerifyEmail);
 router.route("/api/user/auth/changePassword").post(authCtrl.changePassword);
 
-router.route("/api/user/auth/withdrawal").post(authCtrl.withdrawal);
-
 
 export default router;

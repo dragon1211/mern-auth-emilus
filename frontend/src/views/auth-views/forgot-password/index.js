@@ -35,10 +35,10 @@ const ForgotPassword = () => {
 				<Row justify="center">
 					<Col xs={20} sm={20} md={20} lg={9} xl={8}>
 						<Card>
-							<div className="my-2">
+							<div className="mb-2 mt-5">
 								<div className="text-center">
-									<img className="img-fluid" src={`/img/${theme === 'light' ? 'logo.png': 'logo-white.png'}`} alt="" />
-									{/* <h3 className="mt-3 font-weight-bold">Forgot Password?</h3> */}
+									{/* <img className="img-fluid" src={`/img/${theme === 'light' ? 'logo.png': 'logo-white.png'}`} alt="" /> */}
+									<h3 className="mt-3 font-weight-bold">Forgot Password?</h3>
 									<p className="mb-4">Enter your Email to reset password</p>
 								</div>
 								<Row justify="center">

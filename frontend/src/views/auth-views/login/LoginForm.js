@@ -141,7 +141,7 @@ export const LoginForm = props => {
 					<span 
 						className="cursor-pointer font-size-sm font-weight-normal text-muted"
 					>
-						<Link to="/auth/forgot-password">Forget Password?</Link>
+						<Link to="/forgot-password">Forget Password?</Link>
 					</span>
 				</div>
 				<Form.Item>
