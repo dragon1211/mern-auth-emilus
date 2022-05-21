@@ -16,6 +16,7 @@ import {
 } from 'redux/actions/Auth';
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion"
+import { AUTH_PREFIX_PATH } from 'configs/AppConfig'
 
 export const LoginForm = props => {
 	let history = useHistory();
@@ -141,7 +142,7 @@ export const LoginForm = props => {
 					<span 
 						className="cursor-pointer font-size-sm font-weight-normal text-muted"
 					>
-						<Link to="/forgot-password">Forget Password?</Link>
+						<Link to={`${AUTH_PREFIX_PATH}/forgot-password`}>Forget Password?</Link>
 					</span>
 				</div>
 				<Form.Item>

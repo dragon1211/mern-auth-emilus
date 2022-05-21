@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import { Card, Row, Col } from "antd";
 import { useSelector } from 'react-redux';
+import { AUTH_PREFIX_PATH } from 'configs/AppConfig'
 
 const backgroundStyle = {
 	backgroundImage: 'url(/img/others/img-17.jpg)',
@@ -21,7 +22,7 @@ const Login = props => {
 							<div className="my-4">
 								<div className="text-center">
 									<img className="img-fluid" src={`/img/${theme === 'light' ? 'logo.png': 'logo-white.png'}`} alt="" />
-									<p>Don't have an account yet? <Link to="/register">Sign Up</Link></p>
+									<p>Don't have an account yet? <Link to={`${AUTH_PREFIX_PATH}/register`}>Sign Up</Link></p>
 								</div>
 								<Row justify="center">
 									<Col xs={24} sm={24} md={20} lg={20}>
