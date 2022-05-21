@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation  } from "react-router-dom";
 import { Card, Row, Col, Form, Input, Button, message } from "antd";
 import { LockOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
@@ -37,7 +37,8 @@ const rules = {
 const ResetPassword = (props) => {
 
 	const history = useHistory();
-	const { token } = props.match.params;
+	const _location = useLocation();
+	const _token= new URLSearchParams(_location.search).get('token');
 
 	const [form] = Form.useForm();
 	const [loading, setLoading] = useState(false);
@@ -47,7 +48,7 @@ const ResetPassword = (props) => {
 
 
 	useEffect(() => {
-		JwtAuthService.checkLinkOfResetPassword(token)
+		JwtAuthService.checkLinkOfResetPassword(_token)
 		.then(res => {
 			if(res.data.status_code === 200){
 				setLoaded(true);
@@ -62,7 +63,7 @@ const ResetPassword = (props) => {
 
 	const onSend = values => {
 		setLoading(true);
-		JwtAuthService.resetPassword(token, values.password)
+		JwtAuthService.resetPassword(_token, values.password)
 		.then(res=>{
 			if(res.data.status_code === 200){
 				message.success("Successfully changed!");
