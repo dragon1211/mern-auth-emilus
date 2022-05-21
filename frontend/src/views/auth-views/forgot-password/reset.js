@@ -68,7 +68,7 @@ const ResetPassword = (props) => {
 		.then(res=>{
 			if(res.data.status_code === 200){
 				message.success("Successfully changed!", ()=>{
-					history.pushname(`${AUTH_PREFIX_PATH}/login`);
+					history.push(`${AUTH_PREFIX_PATH}/login`);
 				});
 			} else {
 				message.error(res.data.message);
