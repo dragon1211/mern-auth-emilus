@@ -5,7 +5,7 @@ export const APP_NAME = 'Okaimono';
 export const API_BASE_URL = env.API_ENDPOINT_URL
 export const API_URL = process.env.REACT_APP_API_URL;
 export const APP_PREFIX_PATH = '';
-export const AUTH_PREFIX_PATH = '/auth';
+export const AUTH_PREFIX_PATH = '';
 
 export const THEME_CONFIG = {
 	navCollapsed: false,
