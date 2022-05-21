@@ -15,6 +15,7 @@ export const AppViews = () => {
         <Redirect from={`${APP_PREFIX_PATH}`} to={`${APP_PREFIX_PATH}/home`} />
       </Switch>
     </Suspense>
+
   )
 }
 

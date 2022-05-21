@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import RegisterForm from './RegisterForm'
 import { Card, Row, Col } from "antd";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { AUTH_PREFIX_PATH } from 'configs/AppConfig'
 
 const backgroundStyle = {
 	backgroundImage: 'url(/img/others/img-17.jpg)',
@@ -27,7 +28,7 @@ const RegisterOne = props => {
 										<RegisterForm {...props} allowRedirect={true}/>
 									</Col>
 								</Row>
-								<p className='text-center'>I've already had account. <Link to="/login">Sign In</Link></p>
+								<p className='text-center'>I've already had account. <Link to={`${AUTH_PREFIX_PATH}/login`}>Sign In</Link></p>
 							</div>
 						</Card>
 					</Col>

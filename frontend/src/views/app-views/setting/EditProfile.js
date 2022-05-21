@@ -111,7 +111,7 @@ const EditProfile = () => {
 							<Row gutter={ROW_GUTTER}>
 								<Col xs={24} sm={24} md={24}>
 									<Form.Item
-										label="ニック名"
+										label="Nickname"
 										name="nickname"
 										rules={[
 											{
@@ -125,7 +125,7 @@ const EditProfile = () => {
 								</Col>
 								<Col xs={24} sm={24} md={12}>
 									<Form.Item
-										label="お名前"
+										label="Name"
 										name="name"
 										rules={[
 											{
@@ -139,7 +139,7 @@ const EditProfile = () => {
 								</Col>
 								<Col xs={24} sm={24} md={12}>
 									<Form.Item
-										label="フリガナ"
+										label="Furigana"
 										name="furigana"
 										rules={[
 											{
@@ -153,7 +153,7 @@ const EditProfile = () => {
 								</Col>
 								<Col xs={24} sm={24} md={12}>
 									<Form.Item
-										label="電話番号"
+										label="Phone"
 										name="phoneNumber"
 										rules={[
 											{
@@ -167,7 +167,7 @@ const EditProfile = () => {
 								</Col>
 								<Col xs={24} sm={24} md={12}>
 									<Form.Item
-										label="生年月日"
+										label="Birthday"
 										name="birthday"
 										rules={[
 											{
@@ -181,7 +181,7 @@ const EditProfile = () => {
 								</Col>
 								<Col xs={24} sm={24} md={24}>
 									<Form.Item
-										label="住所"
+										label="Address"
 										name="address"
 										rules={[
 											{

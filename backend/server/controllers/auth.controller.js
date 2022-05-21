@@ -157,7 +157,7 @@ const sendLinkOfResetPassword = async (req, res) => {
       }
     });
 
-    let confirm_url = `${FRONT_URL}/forgot-password/reset/${token}`;
+    let confirm_url = `${FRONT_URL}/auth/forgot-password/reset/${token}`;
     let msg = {
       from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients

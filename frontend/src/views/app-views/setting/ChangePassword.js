@@ -46,7 +46,7 @@ const ChangePassword = () => {
 						onFinish={onFinish}
 					>
 						<Form.Item
-							label="現在のパスワード"
+							label="Current Password"
 							name="password"
 							rules={[{ 
 								required: true,
@@ -56,7 +56,7 @@ const ChangePassword = () => {
 							<Input.Password />
 						</Form.Item>
 						<Form.Item
-							label="新しいパスワード"
+							label="New Password"
 							name="newPassword"
 							rules={[{ 
 								required: true,
@@ -66,7 +66,7 @@ const ChangePassword = () => {
 							<Input.Password />
 						</Form.Item>
 						<Form.Item
-							label="パスワード確認"
+							label="Confirm Password"
 							name="confirmPassword"
 							rules={
 								[
