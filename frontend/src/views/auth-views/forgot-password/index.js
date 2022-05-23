@@ -25,7 +25,7 @@ const ForgotPassword = () => {
 		JwtAuthService.sendLinkOfResetPassword(values.email)
 		.then(res=>{
 			if(res.data.status_code === 200){
-				setSuccess("We sent verification link!");
+				setSuccess("We sent link to reset password!");
 			} else {
 				setError(res.data.message);
 			}
