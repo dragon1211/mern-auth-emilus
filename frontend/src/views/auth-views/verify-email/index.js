@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, Row, Col, Form, Input, Button, Alert } from "antd";
 import { MailOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import JwtAuthService from 'services/JwtAuthService';
+import UserService from 'services/UserService';
 
 const backgroundStyle = {
 	backgroundImage: 'url(/img/others/img-17.jpg)',
@@ -10,19 +11,17 @@ const backgroundStyle = {
 	backgroundSize: 'cover'
 }
 
-const ForgotPassword = () => {
+const EmailAuthForm  = () => {
+	const _user = UserService.getCurrentUser();
 	const [form] = Form.useForm();
 	const [loading, setLoading] = useState(false);
 	const [_success, setSuccess] = useState('');
 	const [_error, setError] = useState('');
 
-	const theme = useSelector(state => state.theme.currentTheme)
 
 	const onSend = values => {
 		setLoading(true);
-		setSuccess('');
-		setError('');
-		JwtAuthService.sendLinkOfResetPassword(values.email)
+		JwtAuthService.sendLinkOfVerifyEmail(_user.email, values.email)
 		.then(res=>{
 			if(res.data.status_code === 200){
 				setSuccess("We sent verification link!");
@@ -41,9 +40,8 @@ const ForgotPassword = () => {
 						<Card>
 							<div className="mb-2 mt-5">
 								<div className="text-center">
-									{/* <img className="img-fluid" src={`/img/${theme === 'light' ? 'logo.png': 'logo-white.png'}`} alt="" /> */}
-									<h3 className="mt-3 font-weight-bold">Forgot Password?</h3>
-									<p className="mb-4">Enter your Email to reset password</p>
+									<h3 className="mt-3 font-weight-bold">Email Activation</h3>
+									<p className="mb-4">We will send verification link to verify your email</p>
 								</div>
 								<Row justify="center">
 									<Col xs={24} sm={24} md={20} lg={20}>
@@ -56,7 +54,12 @@ const ForgotPassword = () => {
 												closable
 											/>
 										}
-										<Form form={form} layout="vertical" name="forget-password" onFinish={onSend}>
+										<Form form={form} layout="vertical" name="forget-password" 
+											onFinish={onSend}
+											initialValues= {{
+												email: _user.email
+											}}
+										>
 											<Form.Item 
 												name="email" 
 												rules={
@@ -88,5 +91,5 @@ const ForgotPassword = () => {
 	)
 }
 
-export default ForgotPassword
+export default EmailAuthForm 
 

@@ -8,14 +8,17 @@ import { IntlProvider } from "react-intl";
 import { ConfigProvider } from 'antd';
 import { APP_PREFIX_PATH, AUTH_PREFIX_PATH } from 'configs/AppConfig'
 import useBodyClass from 'hooks/useBodyClass';
+import UserService from "services/UserService";
 
 function RouteInterceptor({ children, isAuthenticated, ...rest }) {
+  const _user = UserService.getCurrentUser();
   return (
     <Route
       {...rest}
       render={({ location }) =>
         isAuthenticated ? (
-          children
+          _user.emailVerified ? children
+          : <Redirect to={`${AUTH_PREFIX_PATH}/verify-email`} />
         ) : (
           <Redirect
             to={{

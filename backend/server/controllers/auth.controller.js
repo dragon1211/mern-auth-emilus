@@ -278,7 +278,7 @@ const sendLinkOfVerifyEmail = async (req, res) => {
           }
         });
     
-        let confirm_url = `${FRONT_URL}/verify/email/${token}`;
+        let confirm_url = `${FRONT_URL}/auth/verify-email/activate?verify_token=${token}`;
         let msg = {
           from: APP_CONFIG.support_mail, // Sender address
           to: req.body.new_email, // List of recipients
