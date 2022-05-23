@@ -37,7 +37,7 @@ const signUp = (req, res) => {
     })
     email_activate.save();             //Save Email Activate for email verification
     
-    let confirm_url = `${FRONT_URL}/verify/email/${vToken}`;
+    let confirm_url = `${FRONT_URL}/auth/verify-email/activate?verify_token=${vToken}`;
     let msg = {
       from: APP_CONFIG.support_mail, // Sender address
       to: user.email, // List of recipients
