@@ -21,6 +21,8 @@ const EmailAuthForm  = () => {
 
 	const onSend = values => {
 		setLoading(true);
+		setError('');
+		setSuccess('');
 		JwtAuthService.sendLinkOfVerifyEmail(_user.email, values.email)
 		.then(res=>{
 			if(res.data.status_code === 200){
@@ -52,6 +54,7 @@ const EmailAuthForm  = () => {
 												type={_error ? "error": "success"}
 												showIcon
 												closable
+												className='mb-3'
 											/>
 										}
 										<Form form={form} layout="vertical" name="forget-password" 
