@@ -54,6 +54,7 @@ const ForgotPassword = () => {
 												type={_error ? "error": "success"}
 												showIcon
 												closable
+												className='mb-3'
 											/>
 										}
 										<Form form={form} layout="vertical" name="forget-password" onFinish={onSend}>
